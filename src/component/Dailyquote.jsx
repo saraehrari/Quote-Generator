@@ -1,4 +1,5 @@
 
+
 export default function Dailyquote({ quote }) {
   return (
     <div>
@@ -9,14 +10,8 @@ export default function Dailyquote({ quote }) {
         that can brighten your day.
       </p>
 
-      {!quote.q ? (
-        <p>No quote available.</p>
-      ) : (
-        <>
-          <h2>{quote.q}</h2>
-          <p>— {quote.a}</p>
-        </>
-      )}
+      <h2>{quote.q}</h2>
+      <p>— {quote.a}</p>
     </div>
   );
 }
