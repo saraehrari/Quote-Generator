@@ -1,8 +1,12 @@
-export default function Button({setButton}){
-    
-return(
+
+
+export default function Button({ getQuote }) {
+  return (
     <div>
-        <button onClick={setButton}>New Quote</button>
+      <button onClick={getQuote}>New Quote</button>
     </div>
-)
+  );
 }
+
+
+

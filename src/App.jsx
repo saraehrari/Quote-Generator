@@ -1,37 +1,37 @@
+
 import { useEffect, useState } from "react";
 import Button from "./component/Button";
 import Dailyquote from "./component/Dailyquote";
 
 
+function App() {
+  const [quotes, setQuotes] = useState({});
+  const [loading, setLoading] = useState(true);
 
+  const getQuote = async () => {
+    setLoading(true);
 
+    const res = await fetch("https://zenquotes.io/api/random");
+    const data = await res.json();
 
-function App(){
-const[quotes, setQuotes]=useState([]);
-const[loading, setLoading]=useState(true);
+    setQuotes(data[0]);
+    setLoading(false);
+  };
 
-const getQuote = async () => {
-  setLoading(true);
+  useEffect(() => {
+    getQuote();
+  }, []);
 
-  const res = await fetch("https://zenquotes.io/api/random");
-  const data = await res.json();
+  return (
+    <div>
+      <Dailyquote quotes={quotes} />
 
-  setQuotes(data[0]);
-  setLoading(false);
-};
+      <Loading loading={loading} />
 
-useEffect(()=>{
-  getQuote();
-})
-return(
-
-<div>
-  <Dailyquote quotes={quotes}/>
-<loading loading={loading}/>
-  <Button Button={Button}/>
-</div>
-
-
-)
+      <Button setButton={getQuote} />
+    </div>
+  );
 }
+
 export default App;
+
