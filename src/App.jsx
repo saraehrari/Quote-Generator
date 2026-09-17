@@ -1,6 +1,4 @@
 
-
-
 import { useEffect, useState } from "react";
 import Button from "./component/Button";
 import Dailyquote from "./component/Dailyquote";
@@ -8,12 +6,17 @@ import Dailyquote from "./component/Dailyquote";
 function App() {
   const [quote, setQuote] = useState({});
 
-  async function getQuote() {
-    const res = await fetch("https://zenquotes.io/api/random");
+ async function getQuote() {
+  try {
+    const res = await fetch("https://dummyjson.com/quotes/random");
+
     const data = await res.json();
 
     setQuote(data[0]);
+  } catch (error) {
+    
   }
+}
 
   useEffect(() => {
     getQuote();
@@ -21,12 +24,10 @@ function App() {
 
   return (
     <div>
-      <Dailyquote Dailyquote={quote} />
+      <Dailyquote quote={quote} />
       <Button getQuote={getQuote} />
     </div>
   );
 }
 
 export default App;
-
-
