@@ -1,4 +1,4 @@
-
+import "./App.css"
 import { useEffect, useState } from "react";
 import Button from "./component/Button";
 import Dailyquote from "./component/Dailyquote";
