@@ -12,7 +12,7 @@ function App() {
 
     const data = await res.json();
 
-    setQuote(data[0]);
+    setQuote(data);
   } catch (error) {
     
   }

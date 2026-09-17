@@ -10,10 +10,10 @@ export default function Dailyquote({ quote }) {
         that can brighten your day.
       </p>
 
-      {quote.q && (
+      {quote && (
         <>
-          <h2>{quote.q}</h2>
-          <p>— {quote.a}</p>
+          <h2>{quote.quote}</h2>
+          <p>— {quote.author}</p>
         </>
       )}
     </div>
